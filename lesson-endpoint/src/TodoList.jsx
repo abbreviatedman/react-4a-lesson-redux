@@ -13,11 +13,11 @@ function TodoList() {
     padding: 0,
   };
 
-  const handleRemoveTodo = (index) => {
+  function handleRemoveTodo (index) {
     dispatch({ type: 'REMOVE_TODO', index });
   };
 
-  const handleRemoveAllTodos = () => {
+  function handleRemoveAllTodos () {
     dispatch({ type: 'RESET_TODOS' });
   };
 

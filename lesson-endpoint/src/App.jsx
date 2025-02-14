@@ -10,14 +10,14 @@ function App() {
   const user = useSelector((state) => state.user);
   const preferDarkMode = useSelector((state) => state.preferDarkMode);
 
-  const handleLogin = (e) => {
+  function handleLogin (e) {
     e.preventDefault();
     const username = e.target.username.value;
     dispatch({ type: 'SET_USERNAME', username: username });
     dispatch({ type: 'TOGGLE_LOGIN' });
   }
 
-  const handleLogout = (e) => {
+  function handleLogout (e) {
     e.preventDefault();
     dispatch({ type: 'SET_USERNAME', username: '' });
     dispatch({ type: 'TOGGLE_LOGIN' });

@@ -1,15 +1,12 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 function TodoForm() {
-  const dispatch = useDispatch();
-  const preferDarkMode = useSelector((state) => state.preferDarkMode);
   const [task, setTask] = useState('');
 
-  const handleSubmit = (e) => {
+  function handleSubmit (e) {
     e.preventDefault();
     if (task.trim()) {
-      dispatch({ type: 'ADD_TODO', task });
+      // dispatch here
       setTask('');
     }
   };
@@ -24,8 +21,8 @@ function TodoForm() {
     borderRadius: '4px',
     border: '1px solid #ddd',
     marginRight: '10px',
-    backgroundColor: preferDarkMode ? '#333' : '#fff',
-    color: preferDarkMode ? '#fff' : '#000',
+    // backgroundColor: preferDarkMode ? '#333' : '#fff',
+    // color: preferDarkMode ? '#fff' : '#000',
   };
 
   const buttonStyles = {
@@ -33,13 +30,13 @@ function TodoForm() {
     fontSize: '16px',
     borderRadius: '4px',
     border: 'none',
-    backgroundColor: preferDarkMode ? '#bb86fc' : '#007bff',
+    // backgroundColor: preferDarkMode ? '#bb86fc' : '#007bff',
     color: 'white',
     cursor: 'pointer',
   };
 
   const buttonHoverStyles = {
-    backgroundColor: preferDarkMode ? '#3700b3' : '#0056b3',
+    // backgroundColor: preferDarkMode ? '#3700b3' : '#0056b3',
   };
 
   return (
@@ -50,15 +47,16 @@ function TodoForm() {
         onChange={(e) => setTask(e.target.value)}
         style={inputStyles}
       />
+
       <button
         type="submit"
         style={buttonStyles}
-        onMouseEnter={(e) =>
-          (e.target.style.backgroundColor = buttonHoverStyles.backgroundColor)
-        }
-        onMouseLeave={(e) =>
-          (e.target.style.backgroundColor = buttonStyles.backgroundColor)
-        }
+        onMouseEnter={(e) => {
+          e.target.style.backgroundColor = buttonHoverStyles.backgroundColor
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.backgroundColor = buttonStyles.backgroundColor
+        }}
       >
         Add Todo
       </button>

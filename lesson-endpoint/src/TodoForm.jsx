@@ -6,7 +6,7 @@ function TodoForm() {
   const preferDarkMode = useSelector((state) => state.preferDarkMode);
   const [task, setTask] = useState('');
 
-  const handleSubmit = (e) => {
+  function handleSubmit (e) {
     e.preventDefault();
     if (task.trim()) {
       dispatch({ type: 'ADD_TODO', task });
